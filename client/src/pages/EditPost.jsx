@@ -18,7 +18,7 @@ export default function EditPost() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.put(`http://localhost:5000/api/posts/${id}`, form, {
+      await axios.put(`/api/posts/${id}`, form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Post updated!');
