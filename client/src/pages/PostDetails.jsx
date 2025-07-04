@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../axios';
 import { AuthContext } from '../contexts/AuthContext';
 
 export default function PostDetails() {
@@ -12,7 +12,7 @@ export default function PostDetails() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        const res = await axios.get(`/api/posts/${id}`);
         setPost(res.data);
       } catch (err) {
         console.error(err);
@@ -27,7 +27,7 @@ const handleDelete = async () => {
   if (!token) return;
 
   try {
-    const res = await axios.delete(`http://localhost:5000/api/posts/${id}`, {
+    const res = await axios.delete(`/api/posts/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import PostCard from '../components/PostCard';
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/posts')
+    axios.get('/api/posts')
       .then(res => setPosts(res.data))
       .catch(err => console.error(err));
   }, []);

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+
+import axios from '../axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function EditPost() {
@@ -8,7 +9,7 @@ export default function EditPost() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/posts/${id}`)
+    axios.get(`/api/posts/${id}`)
       .then(res => setForm({ title: res.data.title, content: res.data.content }))
       .catch(err => alert('Failed to fetch post.'));
   }, [id]);

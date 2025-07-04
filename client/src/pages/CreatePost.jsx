@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
+
+import axios from '../axios'; // adjust the path as per your file structure
+
 
 export default function CreatePost() {
   const [form, setForm] = useState({ title: '', content: '' });
@@ -8,7 +10,7 @@ export default function CreatePost() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.post('http://localhost:5000/api/posts', form, {
+      await axios.post('/api/posts', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Post created!');

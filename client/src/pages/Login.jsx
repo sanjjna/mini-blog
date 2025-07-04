@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext'; // adjust if path differs
 
@@ -12,7 +12,7 @@ export default function Login() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post('/api/auth/login', { email, password });
       const { token, user } = res.data;
 
       login(user, token);           // ✅ this updates AuthContext state
