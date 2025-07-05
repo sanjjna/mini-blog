@@ -7,7 +7,7 @@ const postRoutes = require('./routes/postRoutes');
 
 dotenv.config();
 const app = express();
-const allowedOrigins = ['https://mini-blog-frontend-y0uw.onrender.com'];
+const allowedOrigins = ['https://mini-blog-frontend-y0uw.onrender.com', 'http://localhost:5173']
 
 
 app.use(cors({
